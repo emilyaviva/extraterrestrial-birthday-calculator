@@ -73,5 +73,30 @@
     "name": "Kepler-22b",
     "adjective": "Kepler-22b-ian",
     "year": 289.862
+  },
+  "halley": {
+    "name": "Halley's Comet",
+    "adjective": "Hallean",
+    "year": 26503.325
+  },
+  "halebopp": {
+    "name": "Comet Hale-Bopp",
+    "adjective": "Hale-Bopp-ian",
+    "year": 873312.75
+  },
+  "luna1": {
+    "name": "Luna 1",
+    "adjective": "Luna 1-ian",
+    "year": 450
+  },
+  "pioneer4": {
+    "name": "Pioneer 4",
+    "adjective": "Pioneer 4-ian",
+    "year": 398
+  },
+  "spitzer": {
+    "name": "Spitzer Space Telescope",
+    "adjective": "Spitzerian",
+    "year": 363
   }
 }
