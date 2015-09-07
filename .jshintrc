@@ -1,0 +1,12 @@
+{
+  "node": true,
+  "mocha": true,
+  "browser": false,
+  "globals": {
+    "angular": false,
+    "eqeqeq": true,
+    "indent": 2,
+    "quotmark": true,
+    "varstmt": false
+  }
+}

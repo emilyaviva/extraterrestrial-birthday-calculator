@@ -12,7 +12,7 @@
   "earth": {
     "name": "Earth",
     "adjective": "Terran",
-    "year": 1
+    "year": 365.25
   },
   "mars": {
     "name": "Mars",
