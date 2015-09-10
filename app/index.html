@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="pikaday.css"> -->
     <link rel="stylesheet" href="local.css">
     <title>The Extraterrestrial Birthday Calculator</title>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,26 +47,29 @@
             <strong>Day:</strong>
             <input type="text" id="day">
           </label>
-          <button type="submit">Enter</button>
+          <br>
+          <label for="planet">
+            <strong>Planet:</strong>
+            <select id="planet">
+              <option value="mercury">Mercury</option>
+              <option value="venus">Venus</option>
+              <option value="mars">Mars</option>
+              <option value="jupiter">Jupiter</option>
+              <option value="saturn">Saturn</option>
+            </select>
+          </label>
+          <button type="submit">Find my next birthday</button>
         </form>
         <section id="results">
-          <p>
-            Your Earth birthdate is: <strong><span id="earth-date"></span></strong>
-          </p>
-          <p>
-            You are <strong></strong><span id="earth-age"></span></strong> old.
-          </p>
-          <p>
-            Your next Earth birthday will be <span id="next-earth-bday"></span>.
-          </p>
+          <p id="earth-date"></p>
+          <p id="planet-age"></p>
+          <p id="next-birthday"></p>
         </section>
       </div>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script src="pikaday.js"></script>
-    <script src="plugins/pikaday.jquery.js"></script>
     <script src="client.js"></script>
   </body>
 </html>

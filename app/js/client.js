@@ -1,23 +1,39 @@
 'use strict';
 
-//var planets = require('../../models/planets.json');
-
-/* var $datepicker = $('#datepicker').pikaday({
-  firstDay: 0,
-  minDate: new Date(1900, 0, 1),
-  maxDate: new Date(2020, 12, 31),
-  yearRange: [1900, 2020]
-});
-
-*/
-
-var nextAnniv = function(date, planet) {
-  if (date._isAMomentObject && planet in planets) {
-    console.log(success);
+var planets = {
+  "mercury": {
+    "name": "Mercury",
+    "adjective": "Hermian",
+    "year": 87.9691
+  },
+  "venus": {
+    "name": "Venus",
+    "adjective": "Venusian",
+    "year": 224.701
+  },
+  "mars": {
+    "name": "Mars",
+    "adjective": "Martian",
+    "year": 686.971
+  },
+  "jupiter": {
+    "name": "Jupiter",
+    "adjective": "Jovian",
+    "year": 4332.59
+  },
+  "saturn": {
+    "name": "Saturn",
+    "adjective": "Saturnian",
+    "year": 10759.22
   }
-};
+}
 
-var validateDate = function(arr) {
+function chop(n, delim) {
+  if (!delim) delim = '.';
+  return Number('0.' + n.toString().split(delim)[1]);
+}
+
+function validateDate(arr) {
   var year = arr[0];
   var month = arr[1];
   var day = arr[2];
@@ -27,24 +43,32 @@ var validateDate = function(arr) {
     if (febDate.toString().slice(4,7) !== 'Feb') return false;
   }
   return true;
-};
+}
 
-moment().format();
-// $datepicker.pikaday('show').pikaday('thisMonth');
+function birthday(date, planet) {
+  var currentAge = moment.duration(moment().diff(date, 'days', true), 'days');
+  var i = moment(date);
+  var count = 0;
+  while (i.isBefore(moment())) {
+    i.add(planet.year, 'days');
+    count += 1;
+  }
+  return 'You will turn ' + count + ' ' + planet.adjective + ' years old on ' + i.format('dddd, MMMM D, YYYY') + '.';
+}
 
 $('#input-date').on('submit', function(event) {
   event.preventDefault();
   var inputArray = [parseInt($('#year').val()), parseInt($('#month').val()), parseInt($('#day').val())];
   if (validateDate(inputArray)) {
-    var earthDate = inputMoment.format('dddd, MMMM D, YYYY');
+    var earthDate = moment(inputArray).format('dddd, MMMM D, YYYY');
+    var selectedPlanet = 'planets.' + $('#planet').val();
     $('#earth-date').html(earthDate);
-    var earthAge = moment.duration(moment().diff(inputMoment, 'years', true), 'years');
-    var earthYears = earthAge._data.years;
-    var earthMonths = Math.floor(earthAge._data.months) || null;
-    $('#earth-age').html(earthMonths ? earthYears + ' years ' + earthMonths + ' months' : earthYears + ' years');
+    $('#planet-age').html(birthday(earthDate, selectedPlanet));
+    //var earthAge = moment.duration(moment().diff(inputMoment, 'years', true), 'years');
+    //var earthYears = earthAge._data.years;
+    //var earthMonths = Math.floor(earthAge._data.months) || null;
+    //$('#earth-age').html(earthMonths ? earthYears + ' years ' + earthMonths + ' months' : earthYears + ' years');
   } else {
     alert('Not a valid date');
   }
 });
-
-// nextAnniv(moment(), 'venus');
