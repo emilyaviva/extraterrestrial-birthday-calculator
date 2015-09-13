@@ -1,24 +1,30 @@
 var React = require('react');
 var moment = require('moment');
 
+function isInt(v) {
+  return !isNaN(v) && (function(x) {return (x | 0) === x;})(parseFloat(v));
+};
+
 var DateForm = React.createClass({
   validateDate: function(arr) {
     var year = arr[0];
     var month = arr[1];
     var day = arr[2];
-    if (month in [3, 5, 8, 10] && day > 30) return false;
-    if (month === 1 && day > 28) {
-      var febDate = new Date(year, month, day);
-      if (febDate.toString().slice(4,7) !== 'Feb') return false;
-    }
-    return true;
+    if (isInt(year) && isInt(month) && isInt(day)) {
+      if (month in [3, 5, 8, 10] && day > 30) return false;
+      if (month === 1 && day > 28) {
+        var febDate = new Date(year, month, day);
+        if (febDate.toString().slice(4,7) !== 'Feb') return false;
+      }
+      return true;
+    } else return false;
   },
   handleSubmit: function(e) {
     e.preventDefault();
     var year = React.findDOMNode(this.refs.year).value.trim();
     var month = React.findDOMNode(this.refs.month).value.trim();
     var day = React.findDOMNode(this.refs.day).value.trim();
-    if (!this.validateDate([year, month, day])) this.props.handleInvalidDate();
+    if (!this.validateDate([year, month, day])) this.props.onInvalidDate();
     else this.props.onDateSubmit([year, month, day]);
     return;
   },

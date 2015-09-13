@@ -1,4 +1,4 @@
-{
+module.exports = {
   "mercury": {
     "name": "Mercury",
     "adjective": "Hermian",
