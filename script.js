@@ -121,32 +121,27 @@ function validateDate(arr) {
   } else return false;
 }
 
-function birthday(date, planet) {
-  var currentAge = moment.duration(moment().diff(date, 'days', true), 'days');
-  var i = moment(date);
+function getNextBirthdate(date, planet) {
+  var ageInDays = Math.floor((new Date() - new Date(date.year, date.month, date.day)) / 86400000);
+  console.log(ageInDays);
   var count = 0;
-  while (i.isBefore(moment())) {
-    i.add(planet.year, 'days');
+  var time = 0;
+  while (ageInDays > time) {
+    time += planet.year;
     count += 1;
   }
-  return i;
+  console.log({years: count, date: time});
+  return {years: count, date: time};
 }
 
 $('#entry').on('submit', function(event) {
   event.preventDefault();
-  var inputArray = [parseInt($('#year').val()), parseInt($('#month').val()), parseInt($('#day').val())];
-  if (moment(inputArray).isValid()) {
-    var earthDate = moment(inputArray).format('dddd, MMMM D, YYYY');
+  var inputArray = {year: parseInt($('#year').val()), month: parseInt($('#month').val()), day: parseInt($('#day').val())};
+  if (moment([inputArray.year, inputArray.month, inputArray.day]).isValid()) {
     var planet = planets[$('#planet').val()];
-    var birthdate = birthday(earthDate, planet)
-    $('#planet-age').html(birthdate.format('dddd, MMMM D, YYYY'));
-    $('#next-birthday').css('color', '').html('next birthday goes here');
-    //var selectedPlanet = 'planets.' + $('#planet').val();
-    //$('#planet-age').html(birthday(earthDate, selectedPlanet));
-    //var earthAge = moment.duration(moment().diff(inputMoment, 'years', true), 'years');
-    //var earthYears = earthAge._data.years;
-    //var earthMonths = Math.floor(earthAge._data.months) || null;
-    //$('#earth-age').html(earthMonths ? earthYears + ' years ' + earthMonths + ' months' : earthYears + ' years');
+    var birthdate = getNextBirthdate(inputArray, planet);
+    $('#planet-age').html('');
+    $('#next-birthday').css('color', '').html('You will turn ' + birthdate.years + ' ' + planet.adjective + ' years old on ' + moment() + '.');
   } else {
     $('#planet-age').html('');
     $('#next-birthday').html('Not a valid date').css('color', 'red');
