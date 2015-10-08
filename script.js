@@ -6,42 +6,42 @@ var planets = {
     adjective: 'Hermian',
     year: 87.9691
   },
-  'venus': {
-  name: 'Venus',
+  venus: {
+    name: 'Venus',
     adjective: 'Venusian',
     year: 224.701
   },
-  'earth': {
+  earth: {
     name: 'Earth',
     adjective: 'Terran',
     year: 365.25
   },
-  'mars': {
+  mars: {
     name: 'Mars',
     adjective: 'Martian',
     year: 686.971
   },
-  'jupiter': {
+  jupiter: {
     name: 'Jupiter',
     adjective: 'Jovian',
     year: 4332.59
   },
-  'saturn': {
+  saturn: {
     name: 'Saturn',
     adjective: 'Saturnian',
     year: 10759.22
   },
-  'uranus': {
+  uranus: {
     name: 'Uranus',
     adjective: 'Uranian',
     year: 30687.15
   },
-  'neptune': {
+  neptune: {
     name: 'Neptune',
     adjective: 'Neptunian',
     year: 60190.03
   },
-  'pluto': {
+  pluto: {
     name: 'Pluto',
     adjective: 'Plutonian',
     year: 90570
@@ -51,52 +51,52 @@ var planets = {
     adjective: 'Cerean',
     year: 1681.63
   },
-  'vesta': {
+  vesta: {
     name: 'Vesta',
     adjective: 'Vestan',
     year: 1325.75
   },
-  'eris': {
+  eris: {
     name: 'Eris',
     adjective: 'Eridian',
     year: 203830
   },
-  'sedna': {
+  sedna: {
     name: 'Sedna',
     adjective: 'Sednan',
     year: 4143736
   },
-  'quaoar': {
+  quaoar: {
     name: 'Quaoar',
     adjective: 'Quaoaran',
     year: 104451.3
   },
-  'kepler22b': {
+  kepler22b: {
     name: 'Kepler-22b',
     adjective: 'Kepler-22b-ian',
     year: 289.862
   },
-  'halley': {
+  halley: {
     name: 'Halley\'s Comet',
     adjective: 'Hallean',
     year: 26503.325
   },
-  'halebopp': {
+  halebopp: {
     name: 'Comet Hale-Bopp',
     adjective: 'Hale-Bopp-ian',
     year: 873312.75
   },
-  'luna1': {
+  luna1: {
     name: 'Luna 1',
     adjective: 'Luna 1-ian',
     year: 450
   },
-  'pioneer4': {
+  pioneer4: {
     name: 'Pioneer 4',
     adjective: 'Pioneer 4-ian',
     year: 398
   },
-  'spitzer': {
+  spitzer: {
     name: 'Spitzer Space Telescope',
     adjective: 'Spitzerian',
     year: 363
@@ -129,22 +129,26 @@ function birthday(date, planet) {
     i.add(planet.year, 'days');
     count += 1;
   }
-  return 'You will turn ' + count + ' ' + planet.adjective + ' years old on ' + i.format('dddd, MMMM D, YYYY') + '.';
+  return i;
 }
 
-$('#input-date').on('submit', function(event) {
+$('#entry').on('submit', function(event) {
   event.preventDefault();
   var inputArray = [parseInt($('#year').val()), parseInt($('#month').val()), parseInt($('#day').val())];
-  if (validateDate(inputArray)) {
+  if (moment(inputArray).isValid()) {
     var earthDate = moment(inputArray).format('dddd, MMMM D, YYYY');
-    var selectedPlanet = 'planets.' + $('#planet').val();
-    $('#earth-date').html(earthDate);
-    $('#planet-age').html(birthday(earthDate, selectedPlanet));
+    var planet = planets[$('#planet').val()];
+    var birthdate = birthday(earthDate, planet)
+    $('#planet-age').html(birthdate.format('dddd, MMMM D, YYYY'));
+    $('#next-birthday').css('color', '').html('next birthday goes here');
+    //var selectedPlanet = 'planets.' + $('#planet').val();
+    //$('#planet-age').html(birthday(earthDate, selectedPlanet));
     //var earthAge = moment.duration(moment().diff(inputMoment, 'years', true), 'years');
     //var earthYears = earthAge._data.years;
     //var earthMonths = Math.floor(earthAge._data.months) || null;
     //$('#earth-age').html(earthMonths ? earthYears + ' years ' + earthMonths + ' months' : earthYears + ' years');
   } else {
-    alert('Not a valid date');
+    $('#planet-age').html('');
+    $('#next-birthday').html('Not a valid date').css('color', 'red');
   }
 });

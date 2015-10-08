@@ -5,7 +5,62 @@
     <title>The Extraterrestrial Birthday Calculator</title>
   </head>
   <body>
-    <h1>The Extraterrestrial Birthday Calculator</h1>
+    <header>
+      <h1>The Extraterrestrial Birthday Calculator</h1>
+    </header>
+    <section id="input">
+      <h2>Enter your birthdate and choose a planet:</h2>
+      <form id="entry">
+        <input required type="text" placeholder="Year" id="year"/>
+        <select required id="month">
+          <option value="0">January</option>
+          <option value="1">February</option>
+          <option value="2">March</option>
+          <option value="3">April</option>
+          <option value="4">May</option>
+          <option value="5">June</option>
+          <option value="6">July</option>
+          <option value="7">August</option>
+          <option value="8">September</option>
+          <option value="9">October</option>
+          <option value="10">November</option>
+          <option value="11">December</option>
+        </select>
+        <input required type="text" placeholder="Day" id="day"/>
+        <select required id="planet">
+          <option value="mercury">Mercury</option>
+          <option value="venus">Venus</option>
+          <option value="earth">Earth</option>
+          <option value="mars">Mars</option>
+          <option value="jupiter">Jupiter</option>
+          <option value="saturn">Saturn</option>
+          <option value="uranus">Uranus</option>
+          <option value="neptune">Neptune</option>
+          <option value="pluto">Pluto</option>
+          <option value="ceres">Ceres</option>
+          <option value="vesta">Vesta</option>
+          <option value="eris">Eris</option>
+          <option value="sedna">Sedna</option>
+          <option value="quaoar">Quaoar</option>
+          <option value="kepler22b">Kepler-22b</option>
+          <option value="halley">Halley's Comet</option>
+          <option value="halebopp">Comet Hale-Bopp</option>
+          <option value="luna1">Luna 1</option>
+          <option value="pioneer4">Pioneer 4</option>
+          <option value="spitzer">Spitzer Space Telescope</option>
+        </select>
+        <input type="submit" value="Calculate my next birthday!"></input>
+      </form>
+    </section>
+    <section id="output">
+      <div id="planet-age"></div>
+      <div id="next-birthday"></div>
+    </section>
+    <hr/>
+    <footer>
+      <p>Extraterrestrial Birthday Calculator by <a href="http://emilyaviva.com/">Emily Aviva Kapor-Mater</a>.</p>
+      <a href="https://github.com/emilyaviva/extraterrestrial-birthday-calculator"><img src="GitHub-Mark-64px.png" alt="GitHub"></a>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="script.js"></script>
