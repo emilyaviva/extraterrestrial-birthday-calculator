@@ -129,7 +129,6 @@ function getNextBirthdate(date, planet) {
     time += planet.year;
     count += 1;
   }
-  // console.log({years: count, date: time, ageInDays: ageInDays,  daysUntilNextBirthday: Math.ceil(time - ageInDays)});
   return {years: count, until: Math.ceil(time - ageInDays)};
 }
 
@@ -142,12 +141,12 @@ $('#entry').on('submit', function(event) {
     var planet = planets[$('#planet').val()];
     var birthdate = getNextBirthdate(inputArray, planet);
     if (birthdate.years === 0) {
-      if (birthdate.until === 0) $('#next-birthday').css('color', 'blue').html('Happy birthday today!!');
-      else $('#next-birthday').css('color', 'blue').html('You haven\'t been born yet!');
+      if (birthdate.until === 0) $('#next-birthday').html('<span class="error">Happy birthday today!!</span>');
+      else $('#next-birthday').html('<span class="error">You haven\'t been born yet!</span>');
     } else {
-      $('#next-birthday').css('color', '').html('You will turn ' + birthdate.years + ' ' + planet.adjective + ' year' + (birthdate.years === 1 ? '' : 's') + ' old on ' + moment().add(birthdate.until, 'days').format('dddd, MMMM D, YYYY') + '.');
+      $('#next-birthday').html('You will turn <strong>' + birthdate.years + '</strong> ' + planet.adjective + ' year' + (birthdate.years === 1 ? '' : 's') + ' old on <strong>' + moment().add(birthdate.until, 'days').format('dddd, MMMM D, YYYY') + '</strong>.');
     }
   } else {
-    $('#next-birthday').css('color', 'red').html('Not a valid date');
+    $('#next-birthday').html('<span class="error">Not a valid date</span>');
   }
 });

@@ -1,6 +1,7 @@
 body {
   font-family: "Overlock", sans-serif;
-  text-align: center; }
+  text-align: center;
+  font-weight: 400; }
 
 h1 {
   font-weight: 900; }
@@ -17,5 +18,10 @@ footer {
 
 #output {
   margin: 2em; }
+  #output strong b {
+    font-weight: 700; }
+
+.error {
+  color: red; }
 
 /*# sourceMappingURL=local.css.map */
