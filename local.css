@@ -6,16 +6,6 @@ body {
 h1 {
   font-weight: 900; }
 
-footer {
-  position: relative; }
-  footer p {
-    display: block;
-    font-size: 0.85em;
-    font-weight: 400; }
-  footer img {
-    height: 24px;
-    width: 24px; }
-
 #output {
   margin: 2em; }
   #output strong b {
@@ -23,5 +13,19 @@ footer {
 
 .error {
   color: red; }
+
+footer p {
+  font-size: 0.85em;
+  font-weight: 400; }
+footer img {
+  height: 24px;
+  width: 24px; }
+
+#license {
+  max-width: 480px;
+  text-align: justify;
+  display: none;
+  margin: auto;
+  overflow: hidden; }
 
 /*# sourceMappingURL=local.css.map */

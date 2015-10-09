@@ -107,32 +107,16 @@ function isInt(v) {
   return !isNaN(v) && (function(x) {return (x | 0) === x;})(parseFloat(v));
 }
 
-function validateDate(arr) {
-  var year = arr[0];
-  var month = arr[1];
-  var day = arr[2];
-  if (isInt(year) && isInt(month) && isInt(day)) {
-    if (month in [3, 5, 8, 10] && day > 30) return false;
-    if (month === 1 && day > 28) {
-      var febDate = new Date(year, month, day);
-      if (febDate.toString().slice(4,7) !== 'Feb') return false;
-    }
-    return true;
-  } else return false;
-}
-
 function getNextBirthdate(date, planet) {
   var ageInDays = Math.floor((new Date() - new Date(date.year, date.month, date.day)) / 86400000);
   var count = 0;
-  var time = 0;
+  var time = 0; // 'time' is how many days old you'll be on your next birthday ('count'-th)
   while (ageInDays > time) {
     time += planet.year;
     count += 1;
   }
   return {years: count, until: Math.ceil(time - ageInDays)};
 }
-
-// 'time' is how many days old you'll be on your next birthday ('count'-th)
 
 $('#entry').on('submit', function(event) {
   event.preventDefault();
@@ -149,4 +133,9 @@ $('#entry').on('submit', function(event) {
   } else {
     $('#next-birthday').html('<span class="error">Not a valid date</span>');
   }
+});
+
+$('#toggle-license').click(function(event) {
+  event.preventDefault();
+  $('#license').slideToggle('fast');
 });
