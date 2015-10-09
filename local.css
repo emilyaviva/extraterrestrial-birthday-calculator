@@ -1,0 +1,21 @@
+body {
+  font-family: "Overlock", sans-serif;
+  text-align: center; }
+
+h1 {
+  font-weight: 900; }
+
+footer {
+  position: relative; }
+  footer p {
+    display: block;
+    font-size: 0.85em;
+    font-weight: 400; }
+  footer img {
+    height: 24px;
+    width: 24px; }
+
+#output {
+  margin: 2em; }
+
+/*# sourceMappingURL=local.css.map */

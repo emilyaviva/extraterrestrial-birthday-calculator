@@ -123,27 +123,31 @@ function validateDate(arr) {
 
 function getNextBirthdate(date, planet) {
   var ageInDays = Math.floor((new Date() - new Date(date.year, date.month, date.day)) / 86400000);
-  console.log(ageInDays);
   var count = 0;
   var time = 0;
   while (ageInDays > time) {
     time += planet.year;
     count += 1;
   }
-  console.log({years: count, date: time});
-  return {years: count, date: time};
+  // console.log({years: count, date: time, ageInDays: ageInDays,  daysUntilNextBirthday: Math.ceil(time - ageInDays)});
+  return {years: count, until: Math.ceil(time - ageInDays)};
 }
+
+// 'time' is how many days old you'll be on your next birthday ('count'-th)
 
 $('#entry').on('submit', function(event) {
   event.preventDefault();
   var inputArray = {year: parseInt($('#year').val()), month: parseInt($('#month').val()), day: parseInt($('#day').val())};
-  if (moment([inputArray.year, inputArray.month, inputArray.day]).isValid()) {
+  if (moment(inputArray).isValid()) {
     var planet = planets[$('#planet').val()];
     var birthdate = getNextBirthdate(inputArray, planet);
-    $('#planet-age').html('');
-    $('#next-birthday').css('color', '').html('You will turn ' + birthdate.years + ' ' + planet.adjective + ' years old on ' + moment() + '.');
+    if (birthdate.years === 0) {
+      if (birthdate.until === 0) $('#next-birthday').css('color', 'blue').html('Happy birthday today!!');
+      else $('#next-birthday').css('color', 'blue').html('You haven\'t been born yet!');
+    } else {
+      $('#next-birthday').css('color', '').html('You will turn ' + birthdate.years + ' ' + planet.adjective + ' year' + (birthdate.years === 1 ? '' : 's') + ' old on ' + moment().add(birthdate.until, 'days').format('dddd, MMMM D, YYYY') + '.');
+    }
   } else {
-    $('#planet-age').html('');
-    $('#next-birthday').html('Not a valid date').css('color', 'red');
+    $('#next-birthday').css('color', 'red').html('Not a valid date');
   }
 });
