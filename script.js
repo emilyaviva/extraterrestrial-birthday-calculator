@@ -103,10 +103,6 @@ var planets = {
   }
 };
 
-function isInt(v) {
-  return !isNaN(v) && (function(x) {return (x | 0) === x;})(parseFloat(v));
-}
-
 function getNextBirthdate(date, planet) {
   var ageInDays = Math.floor((new Date() - new Date(date.year, date.month, date.day)) / 86400000);
   var count = 0;
