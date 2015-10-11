@@ -16,12 +16,13 @@ h1 {
 
 a, .int-link {
   text-decoration: none;
-  color: #00e;
+  color: #1010be;
   cursor: pointer; }
 
 footer p {
   font-size: 0.85em;
-  font-weight: 400; }
+  font-weight: 400;
+  margin: 0.5em; }
 footer img {
   height: 24px;
   width: 24px; }
@@ -31,6 +32,7 @@ footer img {
   text-align: justify;
   display: none;
   margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  font-size: 0.9em; }
 
 /*# sourceMappingURL=local.css.map */
