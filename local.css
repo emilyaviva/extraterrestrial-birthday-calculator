@@ -3,8 +3,16 @@ body {
   font-weight: 400;
   text-align: center; }
 
-h1 {
-  font-weight: 900; }
+header {
+  margin-top: 1.2em; }
+  header h1 {
+    font-size: 2.15em;
+    font-weight: 900;
+    display: inline; }
+  header img {
+    height: 60px;
+    padding-right: 10px;
+    vertical-align: text-bottom; }
 
 #output {
   margin: 2em; }
@@ -14,18 +22,26 @@ h1 {
 .error {
   color: red; }
 
-a, .int-link {
-  text-decoration: none;
-  color: #1010be;
-  cursor: pointer; }
-
-footer p {
-  font-size: 0.85em;
-  font-weight: 400;
-  margin: 0.5em; }
-footer img {
-  height: 24px;
-  width: 24px; }
+footer {
+  position: fixed;
+  border-top: 2px solid #3223de;
+  left: 0;
+  bottom: 0;
+  height: 30;
+  width: 100%;
+  background: #88f;
+  color: #000; }
+  footer a, footer .int-link {
+    color: #00f;
+    cursor: pointer;
+    text-decoration: none; }
+  footer p {
+    font-size: 0.85em;
+    font-weight: 400;
+    margin: 0.5em; }
+  footer img {
+    height: 24px;
+    width: 24px; }
 
 #license {
   max-width: 480px;
