@@ -1,6 +1,7 @@
 body {
   font-family: "Overlock", sans-serif;
   font-weight: 400;
+  font-size: 105%;
   text-align: center; }
 
 header {
@@ -13,6 +14,9 @@ header {
     height: 60px;
     padding-right: 10px;
     vertical-align: text-bottom; }
+
+facts {
+  font-size: 90%; }
 
 #output {
   margin: 2em; }
@@ -29,7 +33,7 @@ footer {
   bottom: 0;
   height: 30;
   width: 100%;
-  background: #88f;
+  background: #9897fd;
   color: #000; }
   footer a, footer .int-link {
     color: #00f;
