@@ -2,64 +2,80 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.5, maximum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Overlock:400,900,700" rel="stylesheet" type="text/css">
     <link href="normalize.css" rel="stylesheet" type="text/css">
     <link href="local.css" rel="stylesheet" type="text/css">
     <title>The Extraterrestrial Birthday Calculator</title>
   </head>
   <body>
-    <header>
-      <img src="img/planet.jpg" alt="Planets Icon">
-      <h1>The Extraterrestrial Birthday Calculator</h1>
-    </header>
-    <main>
-      <section id="input">
-        <h2>Enter your birthdate and choose a planet:</h2>
-        <form id="entry">
-          <input required type="text" placeholder="Year" id="year"/>
-          <select required id="month">
-            <option value="0">January</option>
-            <option value="1">February</option>
-            <option value="2">March</option>
-            <option value="3">April</option>
-            <option value="4">May</option>
-            <option value="5">June</option>
-            <option value="6">July</option>
-            <option value="7">August</option>
-            <option value="8">September</option>
-            <option value="9">October</option>
-            <option value="10">November</option>
-            <option value="11">December</option>
-          </select>
-          <input required type="text" placeholder="Day" id="day"/>
-          <select required id="planet">
-            <option value="mercury">Mercury</option>
-            <option value="venus">Venus</option>
-            <option value="mars">Mars</option>
-            <option value="jupiter">Jupiter</option>
-            <option value="saturn">Saturn</option>
-            <option value="uranus">Uranus</option>
-            <option value="neptune">Neptune</option>
-            <option value="pluto">Pluto</option>
-            <option value="ceres">Ceres</option>
-            <option value="vesta">Vesta</option>
-            <option value="eris">Eris</option>
-            <option value="sedna">Sedna</option>
-            <option value="quaoar">Quaoar</option>
-            <option value="kepler22b">Kepler-22b</option>
-            <option value="halley">Halley's Comet</option>
-            <option value="halebopp">Comet Hale-Bopp</option>
-            <option value="luna1">Luna 1</option>
-            <option value="pioneer4">Pioneer 4</option>
-            <option value="spitzer">Spitzer Space Telescope</option>
-          </select>
-          <input type="submit" value="Calculate my next birthday!">
-        </form>
-      </section>
-      <section id="output">
-        <section id="next-birthday"></section>
-      </section>
-      <section id="facts"></section>
+    <div class="vspace"></div>
+    <div class="content">
+      <header>
+        <img src="img/planet.jpg" alt="Planets Icon">
+        <h1>The Extraterrestrial Birthday Calculator</h1>
+      </header>
+      <div class="vspace"></div>
+      <main>
+        <section id="input">
+          <form id="entry">
+            <h2>Enter your birthdate:</h2>
+            <label for="year">Year:
+              <input required type="text" placeholder="Year" id="year">
+            </label>
+            <span class="hspace"></span>
+            <label for="month">Month:
+              <select required id="month">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+              </select>
+            </label>
+            <span class="hspace"></span>
+            <label for="day">Day:
+              <input required type="text" placeholder="Day" id="day">
+            </label>
+            <div class="vspace"></div>
+            <h2>Choose a planet:</h2>
+            <select required id="planet">
+              <option value="mercury">Mercury</option>
+              <option value="venus">Venus</option>
+              <option value="mars">Mars</option>
+              <option value="jupiter">Jupiter</option>
+              <option value="saturn">Saturn</option>
+              <option value="uranus">Uranus</option>
+              <option value="neptune">Neptune</option>
+              <option value="pluto">Pluto</option>
+              <option value="ceres">Ceres</option>
+              <option value="vesta">Vesta</option>
+              <option value="eris">Eris</option>
+              <option value="sedna">Sedna</option>
+              <option value="quaoar">Quaoar</option>
+              <option value="kepler22b">Kepler-22b</option>
+              <option value="halley">Halley's Comet</option>
+              <option value="halebopp">Comet Hale-Bopp</option>
+              <option value="luna1">Luna 1</option>
+              <option value="pioneer4">Pioneer 4</option>
+              <option value="spitzer">Spitzer Space Telescope</option>
+            </select>
+            <div class="vspace"></div>
+            <input type="submit" value="Calculate my next birthday!">
+          </form>
+        </section>
+        <section id="output">
+          <section id="next-birthday"></section>
+        </section>
+        <section id="facts"></section>
+      </div>
     </main>
     <footer>
       <p><a href="https://github.com/emilyaviva/extraterrestrial-birthday-calculator"><img src="img/GitHub-Mark-64px.png" alt="GitHub"></a></p>
@@ -73,7 +89,7 @@
         <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </article>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="script.js"></script>
   </body>
