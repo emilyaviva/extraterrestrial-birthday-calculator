@@ -25,6 +25,10 @@ header {
     font-size: 2.15em;
     font-weight: 900;
     display: inline; }
+  header h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    font-style: italic; }
   header img {
     height: 60px;
     padding-right: 10px;
