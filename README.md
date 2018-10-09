@@ -3,4 +3,4 @@ Ever wondered what your birthday would be if you had been born on Mars? On Pluto
 
 Now you can find out!
 
-The application is live at [etbirthday.com](http://etbirthday.com).
+The application is live at http://emilyaviva.github.io/extraterrestrial-birthday-calculator/
